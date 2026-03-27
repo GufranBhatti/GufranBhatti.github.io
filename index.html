@@ -71,6 +71,7 @@
             font-weight: 700;
             background: var(--gradient);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
             opacity: 0;
@@ -159,6 +160,7 @@
             font-weight: 700;
             background: var(--gradient);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             font-family: 'JetBrains Mono', monospace;
             cursor: pointer;
@@ -1056,6 +1058,96 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
+        /* --- Project Filter Tabs --- */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tab:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-tab.active {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        .project-card {
+            transition: transform 0.3s, border-color 0.3s, opacity 0.4s, max-height 0.5s;
+        }
+
+        .project-card.hidden {
+            display: none;
+        }
+
+        /* --- Education Section --- */
+        .education-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .education-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .education-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-details h4 {
+            color: var(--primary);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-details p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
         /* --- Animations --- */
         @keyframes float {
             0% {
@@ -1207,6 +1299,7 @@
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
             <a href="#ai-demo">AI Lab</a>
             <button class="api-key-btn" onclick="openModal()">🔑 API Key</button>
         </div>
@@ -1222,8 +1315,8 @@
             <h1>Hi, I'm <span>Gufran Bhatti</span></h1>
             <div class="typewriter" id="typewriter"></div>
             <p>
-                Specializing in Computer Vision, Geospatial Analytics, and Large Language Models.
-                Building intelligent agents to solve complex business challenges.
+                Specializing in RAG Systems, Multi-Agent AI, and Computer Vision.
+                Building intelligent solutions that transform how businesses operate.
             </p>
             <div class="cta-buttons">
                 <a href="#contact" class="btn btn-primary">Contact Me</a>
@@ -1247,27 +1340,28 @@
         <div class="about-grid">
             <div class="about-text fade-in">
                 <p>
-                    I am an AI Engineer based in Karachi, PK, with a deep passion for bridging the gap between raw data
-                    and actionable insights. Currently at <strong>Neusco</strong>, I design end-to-end AI pipelines
-                    ranging from Pose Estimation to Multi-Agent Systems.
+                    I am an AI Engineer based in Karachi, PK, with a deep passion for building production-grade AI
+                    systems. Currently at <strong>Neusco</strong>, I design enterprise RAG chatbots, multi-agent
+                    orchestration systems, and real-time Computer Vision pipelines.
                 </p>
                 <p>
                     My journey began with a strong foundation in Computer Science from PAF KIET University, leading to
-                    impactful roles where I've automated satellite imagery processing and deployed RAG chatbots. I
-                    thrive on solving real-world problems using PyTorch, TensorFlow, and modern Agentic AI frameworks.
+                    impactful roles where I've deployed workspace-aware SQL chatbots, built CrewAI-powered automation
+                    agents, and developed pose estimation systems. I thrive on solving real-world problems using
+                    PyTorch, TensorFlow, LangChain, and modern Agentic AI frameworks.
                 </p>
             </div>
             <div class="stats fade-in">
                 <div class="stat-card">
-                    <span class="stat-number">2+</span>
+                    <span class="stat-number">3+</span>
                     <span>Years Experience</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">10+</span>
+                    <span class="stat-number">15+</span>
                     <span>AI Projects</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">3</span>
+                    <span class="stat-number">5</span>
                     <span>Key Domains</span>
                 </div>
                 <div class="stat-card">
@@ -1295,6 +1389,7 @@
                     <span class="skill-tag"><i class="fas fa-comments"></i> LLM / RAG</span>
                     <span class="skill-tag"><i class="fas fa-users-cog"></i> CrewAI</span>
                     <span class="skill-tag"><i class="fas fa-link"></i> LangChain</span>
+                    <span class="skill-tag"><i class="fas fa-gem"></i> Gemini API</span>
                 </div>
             </div>
             <div class="skill-category">
@@ -1302,22 +1397,24 @@
                 <div class="skill-tags">
                     <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
                     <span class="skill-tag"><i class="fas fa-code"></i> C#</span>
+                    <span class="skill-tag"><i class="fas fa-bolt"></i> FastAPI</span>
                     <span class="skill-tag"><i class="fas fa-flask"></i> Flask</span>
-                    <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+                    <span class="skill-tag"><i class="fas fa-chart-area"></i> Streamlit</span>
+                    <span class="skill-tag"><i class="fas fa-database"></i> SQL / MySQL</span>
                     <span class="skill-tag"><i class="fas fa-server"></i> PostgreSQL</span>
                     <span class="skill-tag"><i class="fas fa-vector-square"></i> Qdrant</span>
                     <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
                 </div>
             </div>
             <div class="skill-category">
-                <h3><i class="fas fa-globe-americas"></i> Tools & Geospatial</h3>
+                <h3><i class="fas fa-toolbox"></i> Tools & Platforms</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag"><i class="fas fa-map"></i> ArcGIS Pro</span>
-                    <span class="skill-tag"><i class="fas fa-globe"></i> Google Earth Pro</span>
-                    <span class="skill-tag"><i class="fas fa-crop-alt"></i> SAM</span>
-                    <span class="skill-tag"><i class="fas fa-project-diagram"></i> n8n</span>
+                    <span class="skill-tag"><i class="fas fa-project-diagram"></i> n8n Workflows</span>
                     <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
                     <span class="skill-tag"><i class="fas fa-chart-bar"></i> Power BI</span>
+                    <span class="skill-tag"><i class="fas fa-book-open"></i> Jupyter</span>
+                    <span class="skill-tag"><i class="fas fa-cogs"></i> REST APIs</span>
+                    <span class="skill-tag"><i class="fab fa-linux"></i> Linux</span>
                 </div>
             </div>
         </div>
@@ -1328,23 +1425,57 @@
         <div class="section-header fade-in">
             <h2>Featured <span>Projects</span></h2>
         </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs fade-in">
+            <button class="filter-tab active" onclick="filterProjects('all')">All</button>
+            <button class="filter-tab" onclick="filterProjects('ai-llm')">AI & LLM</button>
+            <button class="filter-tab" onclick="filterProjects('cv')">Computer Vision</button>
+            <button class="filter-tab" onclick="filterProjects('data')">Data Science</button>
+        </div>
+
         <div class="projects-grid fade-in">
 
-            <!-- Project 1 -->
-            <div class="project-card">
+            <!-- Project 1: Enterprise RAG SQL Chatbot -->
+            <div class="project-card" data-category="ai-llm">
                 <div class="project-img-container">
-                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=800&auto=format&fit=crop"
-                        alt="AgriVision Crop Analysis">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop"
+                        alt="Enterprise RAG SQL Chatbot">
                 </div>
                 <div class="project-content">
-                    <h3>AgriVision: Crop Analysis</h3>
+                    <h3>Enterprise RAG SQL Chatbot</h3>
                     <p>
-                        Automated pipeline using Sentinel-2 imagery and fine-tuned YOLO v8 models to identify crop types
-                        and delineate fields with SAM.
+                        Multi-tenant FastAPI microservice with workspace-aware RAG pipeline, LLM-based security
+                        guardrails to prevent data leakage, and conversational memory for contextual SQL query generation.
                     </p>
                     <div class="project-tags">
-                        <span class="project-tag">YOLO v8</span>
-                        <span class="project-tag">Geospatial</span>
+                        <span class="project-tag">FastAPI</span>
+                        <span class="project-tag">LangChain</span>
+                        <span class="project-tag">Gemini</span>
+                        <span class="project-tag">MySQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/GufranBhatti" class="project-link"><i class="fab fa-github"></i>
+                            View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Multi-Agent AI System -->
+            <div class="project-card" data-category="ai-llm">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop"
+                        alt="Multi-Agent AI System">
+                </div>
+                <div class="project-content">
+                    <h3>Multi-Agent AI System</h3>
+                    <p>
+                        CrewAI-powered autonomous agents for automated email dispatch, smart report generation,
+                        and task orchestration — integrated into a real-time chatbot interface.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">CrewAI</span>
+                        <span class="project-tag">LangChain</span>
                         <span class="project-tag">Python</span>
                     </div>
                     <div class="project-links">
@@ -1354,22 +1485,22 @@
                 </div>
             </div>
 
-            <!-- Project 2 -->
-            <div class="project-card">
+            <!-- Project 3: AI Interview Prep App -->
+            <div class="project-card" data-category="ai-llm">
                 <div class="project-img-container">
-                    <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=800&auto=format&fit=crop"
-                        alt="Neural RAG Chatbot">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop"
+                        alt="AI Interview Prep App">
                 </div>
                 <div class="project-content">
-                    <h3>Neural RAG Chatbot</h3>
+                    <h3>AI Interview Prep App</h3>
                     <p>
-                        Enterprise-grade conversational agent using LangChain and Qdrant vector DB. Capable of querying
-                        complex internal documentation with high accuracy.
+                        Full-stack SaaS application where users upload their resume and job description,
+                        and an AI engine generates tailored interview questions, evaluates responses, and provides feedback.
                     </p>
                     <div class="project-tags">
-                        <span class="project-tag">LangChain</span>
-                        <span class="project-tag">RAG</span>
-                        <span class="project-tag">Qdrant</span>
+                        <span class="project-tag">Next.js</span>
+                        <span class="project-tag">Gemini</span>
+                        <span class="project-tag">Full-Stack</span>
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/GufranBhatti" class="project-link"><i class="fab fa-github"></i>
@@ -1378,26 +1509,124 @@
                 </div>
             </div>
 
-            <!-- Project 3 -->
-            <div class="project-card">
+            <!-- Project 4: Reckless Driving Detection -->
+            <div class="project-card" data-category="cv">
                 <div class="project-img-container">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop"
-                        alt="IoT Intrusion Detection">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=800&auto=format&fit=crop"
+                        alt="Reckless Driving Detection">
                 </div>
                 <div class="project-content">
-                    <h3>IoT Intrusion Detection</h3>
+                    <h3>Reckless Driving Detection</h3>
                     <p>
-                        Deep Learning based system for detecting network intrusions in IoT devices. Published in IEEE,
-                        achieving 98% detection accuracy.
+                        AI model trained on sensor data to detect reckless driving behavior in real-time.
+                        Built as a university IoT course project using Computer Vision and ML techniques.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">ML / DL</span>
+                        <span class="project-tag">IoT</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/GufranBhatti/Reckless-Driving-Detection" class="project-link"><i class="fab fa-github"></i>
+                            View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: IoT Intrusion Detection (IEEE) -->
+            <div class="project-card" data-category="data">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop"
+                        alt="IoT Intrusion Detection System">
+                </div>
+                <div class="project-content">
+                    <h3>IoT Intrusion Detection (IEEE)</h3>
+                    <p>
+                        Published research implementing BiLSTM, DNN, and Random Forest on IoT network attack datasets.
+                        Achieved 99%+ accuracy with a Streamlit-based prototype UI. Published in IEEE.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">TensorFlow</span>
-                        <span class="project-tag">IoT Security</span>
+                        <span class="project-tag">Streamlit</span>
                         <span class="project-tag">IEEE</span>
                     </div>
                     <div class="project-links">
                         <a href="https://ieeexplore.ieee.org/document/10099152" class="project-link"><i
                                 class="fas fa-book"></i> Read Paper</a>
+                        <a href="https://github.com/GufranBhatti/Intrusion-Detection-Using-Machine-Learning-And-Deep-Learning-FYP-" class="project-link"><i class="fab fa-github"></i>
+                            View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6: Pose Estimation System -->
+            <div class="project-card" data-category="cv">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop"
+                        alt="Pose Estimation System">
+                </div>
+                <div class="project-content">
+                    <h3>Pose Estimation System</h3>
+                    <p>
+                        Real-time human pose estimation pipeline for workplace safety monitoring and
+                        gesture recognition using deep learning and computer vision.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">PyTorch</span>
+                        <span class="project-tag">OpenCV</span>
+                        <span class="project-tag">MediaPipe</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/GufranBhatti" class="project-link"><i class="fab fa-github"></i>
+                            View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7: Power BI Dashboards -->
+            <div class="project-card" data-category="data">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+                        alt="Power BI Dashboards">
+                </div>
+                <div class="project-content">
+                    <h3>Power BI Analytics Dashboards</h3>
+                    <p>
+                        Interactive business intelligence dashboards for sales analytics, operational KPIs,
+                        and executive reporting with advanced DAX measures and data modeling.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Power BI</span>
+                        <span class="project-tag">DAX</span>
+                        <span class="project-tag">Data Modeling</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/GufranBhatti/PowerBI-Dashboards" class="project-link"><i class="fab fa-github"></i>
+                            View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8: Image Classification - Dog Breeds -->
+            <div class="project-card" data-category="cv">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=800&auto=format&fit=crop"
+                        alt="Dog Breed Classifier">
+                </div>
+                <div class="project-content">
+                    <h3>Image Classifier — Dog Breeds</h3>
+                    <p>
+                        Pre-trained CNN image classifier for 133 dog breeds using transfer learning.
+                        Built as part of the Udacity AI Programming with Python Nanodegree.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">PyTorch</span>
+                        <span class="project-tag">Transfer Learning</span>
+                        <span class="project-tag">Udacity</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/GufranBhatti/Pre-trained-Image-Classifier-to-Identify-Dog-Breeds" class="project-link"><i class="fab fa-github"></i>
+                            View Code</a>
                     </div>
                 </div>
             </div>
@@ -1535,10 +1764,10 @@
                     <h3>AI Engineer</h3>
                     <h4>Neusco | Karachi, PK</h4>
                     <ul>
-                        <li>Designing AI solutions using PyTorch & TensorFlow.</li>
-                        <li>Developing multi-agent systems with CrewAI & LangChain.</li>
-                        <li>Building RAG chatbots and Pose Estimation systems.</li>
-                        <li>Automating workflows with Python & N8N.</li>
+                        <li>Building enterprise RAG chatbots with workspace-aware security guardrails.</li>
+                        <li>Developing multi-agent systems with CrewAI & LangChain for workflow automation.</li>
+                        <li>Designing Pose Estimation pipelines for real-time computer vision applications.</li>
+                        <li>Automating business processes with Python & n8n workflows.</li>
                     </ul>
                 </div>
             </div>
@@ -1550,10 +1779,10 @@
                     <h3>Python Developer (AI/ML)</h3>
                     <h4>Precision Bird | Karachi, PK</h4>
                     <ul>
-                        <li>Fine-tuned YOLO models for crop identification on Sentinel-2 imagery.</li>
-                        <li>Implemented SAM for precise field delineation.</li>
-                        <li>Automated spatial data downloads & processing.</li>
-                        <li>Processed drone imagery using ArcGIS Pro.</li>
+                        <li>Fine-tuned YOLO v8 models for object detection on satellite imagery.</li>
+                        <li>Implemented Segment Anything Model (SAM) for automated segmentation.</li>
+                        <li>Built automated data pipelines for large-scale image processing.</li>
+                        <li>Developed Computer Vision solutions using OpenCV & deep learning.</li>
                     </ul>
                 </div>
             </div>
@@ -1569,6 +1798,23 @@
                         <li>Implemented supervised machine learning models.</li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-header fade-in">
+            <h2>Education</h2>
+        </div>
+        <div class="education-card fade-in">
+            <div class="education-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="education-details">
+                <h3>Bachelor of Science in Computer Science (BSCS)</h3>
+                <h4>PAF-KIET — Karachi Institute of Economics & Technology</h4>
+                <p>Karachi, Pakistan • 2019 – 2023</p>
             </div>
         </div>
     </section>
@@ -1651,7 +1897,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Gufran Bhatti. Built with <i class="fas fa-heart" style="color: var(--primary);"></i> and Code.
+        <p>&copy; 2026 Gufran Bhatti. Built with <i class="fas fa-heart" style="color: var(--primary);"></i> and Code.
         </p>
     </footer>
 
@@ -1687,6 +1933,23 @@
                 preloader.style.display = 'none';
             }, 600);
         });
+
+        // --- Project Filter Logic ---
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const tabs = document.querySelectorAll('.filter-tab');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
 
         // --- API Key Logic ---
         function getApiKey() {
@@ -1776,8 +2039,8 @@
                 You are Gufran Bhatti, an AI Engineer. 
                 Your Resume Context:
                 - Role: AI Engineer at Neusco.
-                - Skills: Python, PyTorch, TensorFlow, YOLO v8, RAG (Retrieval Augmented Generation), CrewAI (Multi-Agent), LangChain, Geospatial Analytics (ArcGIS, Sentinel-2), Qdrant Vector DB, n8n Automation.
-                - Experience: Crop identification with YOLO, Pose estimation, RAG chatbots.
+                - Skills: Python, PyTorch, TensorFlow, YOLO v8, RAG (Retrieval Augmented Generation), CrewAI (Multi-Agent), LangChain, FastAPI, Qdrant Vector DB, n8n Automation, Pose Estimation.
+                - Experience: Enterprise RAG SQL chatbots, Multi-agent orchestration systems, Pose estimation, Computer Vision pipelines.
 
                 Task:
                 The user will provide an "Industry". You must propose a unique technical project idea for that industry that utilizes YOUR specific skills listed above.
@@ -1788,7 +2051,7 @@
                 **My Technical Approach:**
                 - **Computer Vision:** How you'd use YOLO or Pose Estimation.
                 - **LLM/Agents:** How you'd use RAG or CrewAI agents.
-                - **Data:** How you'd use Vector DBs or Geospatial data.
+                - **Data:** How you'd use Vector DBs or APIs.
                 
                 Keep it concise (under 150 words). Be enthusiastic.
             `;
@@ -1840,10 +2103,11 @@
                 You are the AI Assistant for Gufran Bhatti's portfolio website.
                 
                 Gufran's Profile:
-                - **Current Role:** AI Engineer at Neusco (Jun 2025 - Present). Working on Multi-agent systems, RAG chatbots, Pose estimation.
-                - **Previous:** Python Developer at Precision Bird (Sep 2023 - May 2025). Specialized in Geospatial AI, YOLO fine-tuning for crops, Sentinel-2 imagery.
-                - **Education:** BSCS from PAF KIET University.
-                - **Key Skills:** PyTorch, TensorFlow, YOLO v8, LangChain, CrewAI, ArcGIS Pro, Qdrant, Flask, n8n.
+                - **Current Role:** AI Engineer at Neusco (Jun 2025 - Present). Building enterprise RAG chatbots, multi-agent systems with CrewAI & LangChain, and Pose Estimation pipelines.
+                - **Previous:** Python Developer (AI/ML) at Precision Bird (Sep 2023 - May 2025). Specialized in Computer Vision, YOLO fine-tuning, and automated data pipelines.
+                - **Education:** BSCS from PAF KIET University (2019-2023).
+                - **Key Skills:** PyTorch, TensorFlow, YOLO v8, LangChain, CrewAI, FastAPI, Qdrant, Flask, n8n, Docker, Gemini API.
+                - **Key Projects:** Enterprise RAG SQL Chatbot, Multi-Agent AI System, AI Interview Prep App, Reckless Driving Detection, IoT Intrusion Detection (IEEE), Pose Estimation, Power BI Dashboards.
                 - **Publication:** IEEE paper on Intrusion Detection Systems using ML/DL (Apr 2023).
                 - **Contact:** gufranbhatti5@gmail.com
                 
@@ -1864,7 +2128,7 @@
         }
 
         // --- Typewriter Effect ---
-        const textToType = ["AI Engineer", "Computer Vision Specialist", "Data Scientist", "LLM Developer"];
+        const textToType = ["AI Engineer", "LLM Developer", "Multi-Agent Architect", "Computer Vision Specialist"];
         const typeWriterElement = document.getElementById('typewriter');
         let textIndex = 0;
         let charIndex = 0;
